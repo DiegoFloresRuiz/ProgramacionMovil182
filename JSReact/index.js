@@ -10,13 +10,12 @@ console.log('Hola')
 }*/
 
 // Fast Arrow Simple
-// const suma = (a,b) => a+b
+//const suma = (a,b) => a+b
 
 
 //console.log(suma(2,3))
 
 //Objetos 
-
 const usuario={
     nombre: 'Diego',
     apellidoP: 'Flores',
