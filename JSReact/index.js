@@ -45,7 +45,7 @@ console.log(usuario.envarCorreo())*/
 // Trabajo con el DOM 
 
 const titulo = document.createElement('h1')
-titulo.innerText = 'Soy un tilulo creado por JS'
+titulo.innerText = 'Soy un titulo creado por JS'
 document.body.append(titulo)
 
 const boton = document.createElement('button')
