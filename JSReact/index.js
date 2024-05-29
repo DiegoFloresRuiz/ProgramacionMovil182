@@ -58,7 +58,7 @@ boton.addEventListener('click', function(){
 })*/
 
 //Trabajo con Arreglos
-const nombres= ['Alan', 'Isa', 'Pablo', 'Juan Pablo']
+//const nombres= ['Alan', 'Isa', 'Pablo', 'Juan Pablo']
 /*
 for (let i =0 ; i< nombres.length; i++){
     const elemento= nombres  [i]
@@ -111,8 +111,50 @@ console.log(nombres); // Imprime el array original
 */
 //MOSULOS: IMPORT & EXPORT
 
-import {suma, resta} from "./calculadora.js" 
-import * as calc from "./calculadora.js"
+//import {suma, resta} from "./calculadora.js" 
+//import * as calc from "./calculadora.js"
+
+// ASINCRONISMO EN JS 
+/*
+const ul = document.createElement('ul')
+
+let datos = fetch('https://jsonplaceholder.typicode.com/posts')
+.then(function(response){
+    console. log("Carga de datos Conectada")
+    return response.json()
+}).then(function(data){
+    console.log(data)
+    data.forEach( function(posts){
+        const li = document.createElement('li')
+        li.innerHTML = posts.title
+        ul.append(li)
+    })
+    document.body.append(ul)
+})
+
+console.log('Cargando HTML')
+console.log('Cargando CSS')
+console.log('Cargando Imagenes')
 
 
+//console. log(datos)
+*/
+// Ejemplo con Async Await
+const ul = document.createElement('ul')
 
+async function cargarDatos(){
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const datos = await response.json()
+    console.log(datos)
+    datos.forEach( function(posts){
+        const li = document.createElement('li')
+        li.innerHTML = posts.title
+        ul.append(li)
+    })
+    document.body.append(ul)
+}
+cargarDatos()
+
+console.log('Cargando HTML')
+console.log('Cargando CSS')
+console.log('Cargando Imagenes')
