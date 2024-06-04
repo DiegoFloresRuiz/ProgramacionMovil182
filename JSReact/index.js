@@ -160,3 +160,36 @@ console.log('Cargando CSS')
 console.log('Cargando Imagenes')
 
 
+/*
+// Declarar el arreglo estudiantes
+const estudiantes = [
+    { name: 'Mane', age: 15 },
+    { name: 'Andrea', age: 22 },
+    { name: 'Alma', age: 19 },
+    { name: 'Emma', age: 29 },
+    { name: 'Maria', age: 13 },
+    { name: 'Luis', age: 16 },
+    { name: 'Yair', age: 21 },
+];
+
+// Función asíncrona para obtener los nombres de los estudiantes mayores de 18 años
+async function obtenerNombresMayoresDe18(estudiantes) {
+    const nombresMayoresDe18 = estudiantes
+        .filter(estudiante => estudiante.age > 18)
+        .map(estudiante => estudiante.name);
+    return nombresMayoresDe18;
+}
+
+// Función principal para imprimir los arreglos
+async function main() {
+    // Obtener el arreglo nombresMayoresDe18 usando la función asíncrona
+    const nombresMayoresDe18 = await obtenerNombresMayoresDe18(estudiantes);
+    // Imprimir ambos arreglos
+    console.log("Arreglo estudiantes:", estudiantes);
+    console.log("Nombres de estudiantes mayores de 18 años:", nombresMayoresDe18);
+}
+
+// Ejecutar la función principal
+main();
+*/
+
