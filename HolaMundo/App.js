@@ -44,30 +44,34 @@ const styles = StyleSheet.create({
   },
 });*/
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import React, { useState } from 'react';
 
-const Texto = ({ contenido, actualizarContenido, estilo }) => {
+/*const Texto = ({ contenido, actualizarContenido, estilo }) => {
   return <Text style={[styles.text,estilo]} onPress={actualizarContenido}>{contenido}</Text>;
-};
+};*/
+
+
 
 export default function App() {
-  const [contenido, setContenido] = useState('Hodaaa como tas!');
-  
-  const actualizarContenido = () => {
-    setContenido('set actualizo este texto');
-  };
 
+  const[text, setText]=useState('')
+  const[submit, setSubmit]=useState('')
+  
   return (
     <View style={styles.container}>
-      <Texto estilo={styles.black} contenido={contenido} actualizarContenido={actualizarContenido} />
-      <Texto estilo={styles.red} contenido={contenido} actualizarContenido={actualizarContenido} />
-      <Texto estilo={styles.amarillo} contenido={contenido} actualizarContenido={actualizarContenido} />
-      {/* <Button title="Actualizar Texto" onPress={actualizarContenido} /> */}
+
+      <Text> Componente TexInput: {submit} </Text>
+      <TextInput style={styles.Tex}  placeholder='Cual es tu nombre: ' onChangeText= { t=>setText(t) } defaultValue={text} />
+        <Button title='Puchurrame' style={styles.boton} onPress={ ()=>{setSubmit(text); alert('Texto enviado')} }/>
+
       <StatusBar style="auto" />
     </View>
   );
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -75,36 +79,24 @@ const styles = StyleSheet.create({
     flexDirection: 'column', // con row vemos de izquiera a derecha, con column-reverse los vemos al reves y pasa lo mimo con los column
     backgroundColor: '#fff',
     alignItems: 'center', // flex-start pociona los cuadros a mano izquierda y con end al lado derecho  y el strechtoma todo lo largo dela pantalla
-    justifyContent: 'space-between', // coloca todo ya sea arriba o abajo flex-start y flex-end , space-between (crea espacios entre componentes )
+    justifyContent: 'center', // coloca todo ya sea arriba o abajo flex-start y flex-end , space-between (crea espacios entre componentes )
     
   },
 
-  text:{
-  color:'white',
-  fontSite:80,
+  Tex:{
+    width:300,
+    height:25,
+    backgroundColor:'#B5B2B2',
+    borderBottomStartRadius:5,
+    borderBottomEndRadius:5,
+    color:'#F4F4F4',
+    textAlign:'center',
+
   },
-  //Creamos tres backgroundColor cada uno de un color distinto para apalicar estos estilos de forma independiente 
-  black:{
+  boton:{
     backgroundColor:'black',
-    width:200,
-    height:50,
-    textAlign:'center',
-    //flex:1,
-  },
-  red:{
-    backgroundColor:'red',
-    width:200,
-    height:50,
-    textAlign:'center',
-    //flex:1,
-  },
-  amarillo:{
-    backgroundColor:'yellow',
-    color:'black',
-    width:200,
-    height:50,
-    textAlign:'center',
-    //flex:1,
-  },
+  }
+
+
 });
 
