@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Button, alert  } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Alert, Button, ImageBackground } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
@@ -22,32 +22,36 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.contb}>
-        <Text style={styles.tx}>Nombre:</Text>
-        <TextInput style={styles.Tex} placeholder='Nombre' value={nombre} onChangeText={setName} />
-        <Text style={styles.tx}>Email:</Text>
-        <TextInput style={styles.Tex} placeholder='Email' value={ema} onChangeText={setEmail}/>
-        <Text style={styles.tx}>Password:</Text>
-        <TextInput style={styles.Tex} placeholder='Password' value={pas} onChangeText={setPassword} secureTextEntry />
-        <Button title='Guardar' style={styles.boton} onPress={ handleSave } color="#000000"/>
-
+    <ImageBackground source={require('./assets/images/h1.jpg')} style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <View style={styles.contb}>
+          <Text style={styles.tx}>Nombre:</Text>
+          <TextInput style={styles.Tex} placeholder='Nombre' value={nombre} onChangeText={setName} />
+          <Text style={styles.tx}>Email:</Text>
+          <TextInput style={styles.Tex} placeholder='Email' value={ema} onChangeText={setEmail}/>
+          <Text style={styles.tx}>Password:</Text>
+          <TextInput style={styles.Tex} placeholder='Password' value={pas} onChangeText={setPassword} secureTextEntry />
+          <Button title='Guardar' style={styles.boton} onPress={handleSave} color="#000000"/>
+        </View>
+        <StatusBar style="auto" />
       </View>
-      <StatusBar style="auto" />
-    </View>
+    </ImageBackground>
   );
 }
 
-
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    height:'100%',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#c3c3c3',
     alignItems: 'center',
     justifyContent: 'center',
-    
-    padding: 20,  
-    borderRadius: 10,  
+    padding: 20,
+    borderRadius: 10,
   },
   Tex: {
     width: '100%',
@@ -56,22 +60,21 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     color: '#F4F4F4',
     marginBottom: 20,
-    paddingLeft: 10,  
+    paddingLeft: 10,
   },
   tx: {
     color: 'black',
-    textAlign: 'left',  
-    alignSelf: 'flex-start',  
+    textAlign: 'left',
+    alignSelf: 'flex-start',
     marginBottom: 5,
   },
-  contb:{
+  contb: {
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
     width: '80%',
     shadowColor: '#000',
-    },
-
+  },
   boton: {
     backgroundColor: 'black',
     padding: 15,
@@ -86,3 +89,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
