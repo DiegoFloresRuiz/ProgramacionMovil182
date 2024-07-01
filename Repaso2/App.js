@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, FlatList, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, FlatList, Alert, Button } from 'react-native';
 import React, { useState } from 'react';
 import { ImageBackground } from 'react-native';
 
@@ -16,37 +16,32 @@ const peliculas = [
   'El Dragón rojo',
   'Saw',
   'Hostal',
-  ''
+  'El despertar de los muertos'
 ];
 
 export default function App() {
   const [busqueda, setBusqueda] = useState('');
   const [peliculasFiltradas, setPeliculasFiltradas] = useState([]);
 
-  const manejarBusqueda = (consulta) => {
-    setBusqueda(consulta);
-    if (consulta) {
+  const manejarBusqueda = () => {
+    if (busqueda) {
       const resultados = peliculas.filter(pelicula => 
-        pelicula.toLowerCase().includes(consulta.toLowerCase())
+        pelicula.toLowerCase().includes(busqueda.toLowerCase())
       );
       setPeliculasFiltradas(resultados);
       if (resultados.length === 0) {
-        Alert.alert('Sin resultados', 'No se encontraron titulos que coincidan con la búsqueda.');
+        Alert.alert('Sin resultados', 'No se encontraron titulos  que coincidan con la búsqueda.');
       }
     } else {
-      setPeliculasFiltradas([]);
+      setPeliculasFiltradas(peliculas);
     }
   };
 
   return (
     <ImageBackground source={require('./assets/images/f1.jpg')} style={styles.imagenFondo}>
       <View style={styles.contenedor}>
-        <TextInput 
-          placeholder='Buscar película'
-          style={styles.entradaTexto}
-          value={busqueda}
-          onChangeText={manejarBusqueda}
-        />
+        <TextInput placeholder='Buscar película' style={styles.entradaTexto} value={busqueda}/>
+        <Button title="Buscar" onPress={manejarBusqueda} color={'#00000'}/>
         {peliculasFiltradas.length > 0 && (
           <FlatList 
             data={peliculasFiltradas}
@@ -81,7 +76,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     borderRadius: 5,
-    color: '#fff',
+    color: 'white',
     marginBottom: 20,
     paddingLeft: 10,
   },
@@ -92,7 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: 'white',
     color: '#fff',
   },
 });
