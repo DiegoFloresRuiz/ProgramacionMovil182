@@ -30,7 +30,7 @@ export default function App() {
       );
       setPeliculasFiltradas(resultados);
       if (resultados.length === 0) {
-        Alert.alert('Sin resultados', 'No se encontraron titulos  que coincidan con la búsqueda.');
+        Alert.alert('Sin resultados', 'No se encontraron titulos que coincidan con la búsqueda.');
       }
     } else {
       setPeliculasFiltradas(peliculas);
@@ -40,7 +40,12 @@ export default function App() {
   return (
     <ImageBackground source={require('./assets/images/f1.jpg')} style={styles.imagenFondo}>
       <View style={styles.contenedor}>
-        <TextInput placeholder='Buscar película' style={styles.entradaTexto} value={busqueda}/>
+        <TextInput
+          placeholder='Buscar película'
+          style={styles.entradaTexto}
+          value={busqueda}
+          onChangeText={text => setBusqueda(text)}
+        />
         <Button title="Buscar" onPress={manejarBusqueda} color={'#00000'}/>
         {peliculasFiltradas.length > 0 && (
           <FlatList 
@@ -91,4 +96,5 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
 
