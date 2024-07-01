@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TextInput, FlatList, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { ImageBackground } from 'react-native';
 
@@ -30,6 +30,9 @@ export default function App() {
         pelicula.toLowerCase().includes(consulta.toLowerCase())
       );
       setPeliculasFiltradas(resultados);
+      if (resultados.length === 0) {
+        Alert.alert('Sin resultados', 'No se encontraron titulos que coincidan con la búsqueda.');
+      }
     } else {
       setPeliculasFiltradas([]);
     }
@@ -93,3 +96,4 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
