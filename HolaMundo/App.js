@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import React, { useState, useEffect } from 'react'; /* para manejo de estados de componentes */
+import Prueba from './screens/Pruebas';
 /* Use efect se usa para operaciones de las que no conocemos el resultado como la consulta a una api o BD */
 export default function App() {
   const [user,setUser] = useState([]) /* Para asignar usuarios y setearlos */
@@ -22,11 +23,11 @@ export default function App() {
 
   return (
   <View style={styles.container}>
-    <FlatList 
-    data={user}
-    renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
-     />
-    <StatusBar style="auto" />
+   {/* <FlatList data={user} renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}/>*/}
+    <StatusBar style="darck" />
+    <Prueba> </Prueba>
+
+
   </View>
   );
 }

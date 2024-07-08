@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   itemPelicula: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: 'white',
