@@ -1,7 +1,19 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
+function homScreen({navigation}){
+  return(
+    <View>
+      
+      <Text> Home Screen</Text>
+      <Button title='Detalles'/>
+    </View>
+  );
+}
 export default function App() {
   return (
     <View style={styles.container}>
